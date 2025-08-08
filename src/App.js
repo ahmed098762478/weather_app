@@ -12,8 +12,9 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  const API_KEY = 'abc123def456ghi789'; // Remplacez par votre clé API OpenWeatherMap
-  const BASE_URL = 'https://api.openweathermap.org/data/2.5';
+const API_KEY = 'bd5e378503939ddaee76f12ad7a97608';
+const BASE_URL = 'https://api.openweathermap.org/data/2.5';
+
 
   const fetchWeather = async (cityName) => {
     if (!cityName.trim()) return;
@@ -23,14 +24,14 @@ function App() {
     
     try {
       // Météo actuelle
-      const weatherResponse = await axios.get(
-        `${BASE_URL}/weather?q=${cityName}&appid=${API_KEY}&units=metric&lang=fr`
-      );
-      
-      // Prévisions sur 5 jours
-      const forecastResponse = await axios.get(
-        `${BASE_URL}/forecast?q=${cityName}&appid=${API_KEY}&units=metric&lang=fr`
-      );
+    const weatherResponse = await axios.get(
+  `${BASE_URL}/weather?q=${cityName}&appid=${API_KEY}&units=metric&lang=fr`
+);
+
+const forecastResponse = await axios.get(
+  `${BASE_URL}/forecast?q=${cityName}&appid=${API_KEY}&units=metric&lang=fr`
+);
+
       
       setWeather(weatherResponse.data);
       setForecast(forecastResponse.data);
