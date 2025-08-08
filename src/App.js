@@ -4,6 +4,7 @@ import { Search, MapPin, Thermometer, Droplets, Wind, Eye, Sunrise, Sunset } fro
 import WeatherCard from './components/WeatherCard';
 import ForecastCard from './components/ForecastCard';
 import LoadingSpinner from './components/LoadingSpinner';
+import WeatherMap from './components/WeatherMap';
 
 function App() {
   const [weather, setWeather] = useState(null);
@@ -132,15 +133,25 @@ const forecastResponse = await axios.get(
 
         {/* Current Weather */}
         {weather && !loading && (
-          <div className="animate-fade-in">
-            <WeatherCard
-              weather={weather}
-              getWeatherIcon={getWeatherIcon}
-              formatTime={formatTime}
-              formatDate={formatDate}
-            />
-          </div>
-        )}
+  <>
+    <WeatherCard
+      weather={weather}
+      getWeatherIcon={getWeatherIcon}
+      formatTime={formatTime}
+      formatDate={formatDate}
+    />
+
+    {/* Carte avec Sidebar */}
+    <div className="mt-6">
+      <WeatherMap
+        lat={weather.coord.lat}
+        lon={weather.coord.lon}
+        city={weather.name}
+      />
+    </div>
+  </>
+)}
+
 
         {/* Forecast */}
         {forecast && !loading && (
