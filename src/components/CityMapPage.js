@@ -7,7 +7,7 @@ import axios from 'axios';
 import iconUrl from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
-const API_KEY = 'bd5e378503939ddaee76f12ad7a97608';
+const API_KEY = 'e83b3c4c08285bf87b99f9bbc0abe3f0';
 const BASE_URL = 'https://api.openweathermap.org/data/2.5';
 
 const CityMapPage = () => {
